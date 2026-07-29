@@ -12,7 +12,6 @@ export default function Page() {
   const [idleRotation, setIdleRotation] = useState(true);
   const sceneRefs = useRef({ camera: null, scene: null });
 
-  // lock scroll while the loading screen is up
   useEffect(() => {
     document.body.classList.toggle("locked", loading);
   }, [loading]);
@@ -29,8 +28,8 @@ export default function Page() {
 
   function initScrollAnimation() {
     gsap.registerPlugin(ScrollTrigger);
-    const { camera, scene } = sceneRefs.current;
-    if (!camera || !scene) return;
+    const { scene } = sceneRefs.current;
+    if (!scene) return;
 
     const heroObject = scene.getObjectByName("hero-object");
     const heroRing = scene.getObjectByName("hero-ring");
@@ -45,25 +44,18 @@ export default function Page() {
     });
 
     if (heroObject) {
-      tl.to(heroObject.rotation, { y: Math.PI * 2.2, x: 0.6, ease: "none" }, 0);
+      tl.to(heroObject.rotation, { y: Math.PI * 1.6, x: 0.35, ease: "none" }, 0);
     }
-    tl.to(camera.position, { x: 2.2, z: 4.5, y: 0.8, ease: "none" }, 0);
-    tl.to(camera.position, { x: -2.4, z: 5.5, y: -0.6, ease: "none" }, 0.5);
     if (heroRing) {
-      tl.to(heroRing.rotation, { z: Math.PI * 3, ease: "none" }, 0);
+      tl.to(heroRing.rotation, { z: Math.PI * 2, ease: "none" }, 0);
     }
-
-    ScrollTrigger.create({
-      trigger: document.body,
-      start: "top top",
-      end: "bottom bottom",
-      onUpdate: () => camera.lookAt(0, 0, 0),
-    });
   }
 
   return (
     <>
-      <Scene3D idleRotation={idleRotation} onReady={handleSceneReady} />
+      <div className="visual-col">
+        <Scene3D idleRotation={idleRotation} onReady={handleSceneReady} />
+      </div>
       {loading && <LoadingOverlay onDone={handleLoadingDone} />}
       <ScrollSections />
     </>
