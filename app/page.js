@@ -7,7 +7,7 @@ const PORTFOLIO = [
   { name: "Side Quad Buggy", tag: "ATV / buggy turları", url: "https://sidequadbuggy.com", initial: "S" },
 ];
 
-const WHATSAPP_NUMBER = "905000000000"; // TODO: gerçek WhatsApp iş numaranla değiştir
+const WHATSAPP_NUMBER = "905076584245";
 
 export default function Page() {
   function sendToWhatsapp() {
