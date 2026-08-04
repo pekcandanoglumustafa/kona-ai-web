@@ -1,23 +1,40 @@
 "use client";
 
-const PORTFOLIO = [
-  { name: "Şamata Rafting", tag: "Rafting turizmi", url: "https://samatarafting.com", initial: "Ş" },
-  { name: "Ideal Rafting", tag: "Rafting turizmi", url: "https://ideal-rafting.vercel.app", initial: "I" },
-  { name: "Rivyera Tur", tag: "Günübirlik tur acentesi", url: "https://rivyera-tur.vercel.app", initial: "R" },
-  { name: "Side Quad Buggy", tag: "ATV / buggy turları", url: "https://sidequadbuggy.com", initial: "S" },
+const WHATSAPP_NUMBER = "905076584245";
+
+const FEATURES = [
+  { icon: "⚡", title: "Ultra Hızlı", text: "Gereksiz hiçbir şey yok. Sayfa milisaniyeler içinde açılır." },
+  { icon: "🔍", title: "SEO Hazır", text: "Başlıktan yapılandırılmış veriye, Google'ın sevdiği her şey kurulu gelir." },
+  { icon: "📈", title: "Google Ads Hazır", text: "Reklam açmaya hazır, dönüşüm takibi kurulu bir altyapı." },
+  { icon: "📱", title: "Mobile First", text: "Trafiğinizin çoğu mobilden gelir; site önce mobil için tasarlanır." },
+  { icon: "✨", title: "Premium Tasarım", text: "Şablon değil, markanıza özel tasarlanmış bir deneyim." },
+  { icon: "🎯", title: "Dönüşüm Odaklı", text: "Her bölüm, ziyaretçiyi müşteriye çevirmek için kurgulanır." },
 ];
 
-const WHATSAPP_NUMBER = "905076584245";
+const RESULTS = [
+  { name: "Dönüşüm Oranı", dir: "up", fill: 78 },
+  { name: "Hemen Çıkma Oranı", dir: "down", fill: 34 },
+  { name: "ROAS", dir: "up", fill: 82 },
+  { name: "Tıklama Başı Maliyet", dir: "down", fill: 40 },
+  { name: "Organik Sıralama", dir: "up", fill: 70 },
+  { name: "Google Kalite Puanı", dir: "up", fill: 90 },
+];
+
+const PORTFOLIO = [
+  { name: "Şamata Rafting", tag: "Rafting Turizmi", url: "https://samatarafting.com", score: "100/100 Mobil Hız" },
+  { name: "İdeal Rafting", tag: "Rafting Turizmi", url: "https://ideal-rafting.vercel.app", score: "Canlı Site" },
+  { name: "Rivyera Tur", tag: "Tur Acentesi", url: "https://rivyera-tur.vercel.app", score: "46 Tur, Canlı" },
+];
+
+const TRUST = ["Şamata Rafting", "İdeal Rafting", "Rivyera Tur", "Side Quad Buggy", "CV Sepeti"];
 
 export default function Page() {
   function sendToWhatsapp() {
     const name = document.getElementById("o-name").value.trim();
     const firm = document.getElementById("o-firm").value.trim();
     const note = document.getElementById("o-note").value.trim();
-
-    let msg = `Merhaba, Kona AI'nin anahtar teslim paketi (20.000 TL) hakkında bilgi almak istiyorum.\n\nAd Soyad: ${name || "-"}\nİşletme: ${firm || "-"}`;
+    let msg = `Merhaba, Kona AI'den ücretsiz analiz / teklif almak istiyorum.\n\nAd Soyad: ${name || "-"}\nİşletme: ${firm || "-"}`;
     if (note) msg += `\nNot: ${note}`;
-
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
   }
 
@@ -31,185 +48,218 @@ export default function Page() {
             <span className="dot"></span>KONA AI
           </div>
           <div className="nav-links">
-            <a href="#sistem">Nasıl Çalışıyor</a>
-            <a href="#paket">Paket</a>
-            <a href="#referanslar">Örnek Çalışmalar</a>
+            <a href="#ozellikler">Özellikler</a>
+            <a href="#sonuclar">Sonuçlar</a>
+            <a href="#portfolyo">Örnek Çalışmalar</a>
           </div>
-          <a href="#siparis" className="nav-cta">
-            Hemen Başlayalım
+          <a href="#teklif" className="nav-cta">
+            Ücretsiz Analiz Al
           </a>
         </nav>
       </header>
 
-      <div className="wrap">
-        {/* HERO */}
-        <section className="hero">
-          <div className="eyebrow">Turizm &amp; Aktivite İşletmeleri İçin</div>
+      {/* HERO */}
+      <section className="hero">
+        <div className="wrap">
+          <div className="eyebrow" style={{ justifyContent: "center" }}>
+            Premium Web Tasarım &amp; Dijital Pazarlama
+          </div>
           <h1>
-            Web sitenizi kurarız, <em>reklamlarınızı açarız</em>, müşteri direkt size ulaşır.
+            WEB SİTESİ DEĞİL,
+            <br />
+            <span className="glow">SATIŞ MAKİNASI</span> KURUYORUZ.
           </h1>
-          <p className="sub">
-            Rafting, ATV/buggy, tur ve aktivite işletmeleri için: mobil uyumlu hızlı bir web sitesi kurar, Google,
-            Instagram ve Facebook reklamlarınızı yönetiriz. Acenteye komisyon yok — müşteri doğrudan sizin
-            WhatsApp&apos;ınıza yazar.
-          </p>
+          <p className="sub">Google&apos;da daha görünür olun. Daha az reklam harcayın. Daha fazla müşteriye ulaşın.</p>
           <div className="hero-cta">
-            <a href="#paket" className="btn-primary">
-              Paketi İncele — 20.000₺
+            <a href="#teklif" className="btn-primary">
+              Ücretsiz Analiz Al
             </a>
-            <a href="#referanslar" className="btn-ghost">
-              Örnek Çalışmalarımız
+            <a href="#portfolyo" className="btn-ghost">
+              Örnek Çalışmaları İncele
             </a>
           </div>
 
-          <div className="stat-band">
-            <div className="lead">
-              Acentelere <span>%20-30 komisyon</span> ödemeyi bırakın — müşteri doğrudan size mesaj atsın veya arasın.
+          <div className="hero-stage">
+            <div className="laptop">
+              <div className="laptop-screen">
+                <div className="laptop-bar">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div className="laptop-preview">
+                  <div className="p-line" style={{ width: "40%" }}></div>
+                  <div className="p-line" style={{ width: "58%" }}></div>
+                  <div className="p-line" style={{ width: "30%" }}></div>
+                </div>
+              </div>
+              <div className="laptop-base"></div>
+              <div className="laptop-stand"></div>
             </div>
-            <div>
-              <div className="stat-number">60-70</div>
-              <div className="stat-label">Günlük doğrudan müşteri mesajı/araması*</div>
+
+            <div className="metric-desktop">
+              <div className="metric-chip glass m1">
+                <div className="val">99</div>
+                <div className="lbl">Performance</div>
+                <span className="tag">hedef skor</span>
+              </div>
+              <div className="metric-chip glass m2">
+                <div className="val">100</div>
+                <div className="lbl">SEO</div>
+                <span className="tag">hedef skor</span>
+              </div>
+              <div className="metric-chip glass m3">
+                <div className="val">100</div>
+                <div className="lbl">Accessibility</div>
+                <span className="tag">hedef skor</span>
+              </div>
+              <div className="metric-chip glass m4">
+                <div className="val">100</div>
+                <div className="lbl">Best Practices</div>
+                <span className="tag">hedef skor</span>
+              </div>
             </div>
-            <div>
-              <div className="stat-number">48 saat</div>
-              <div className="stat-label">Site + reklam teslim süresi</div>
+            <div className="metric-row-mobile">
+              <div className="metric-chip glass">
+                <div className="val">99</div>
+                <div className="lbl">Performance</div>
+              </div>
+              <div className="metric-chip glass">
+                <div className="val">100</div>
+                <div className="lbl">SEO</div>
+              </div>
+              <div className="metric-chip glass">
+                <div className="val">100</div>
+                <div className="lbl">Accessibility</div>
+              </div>
+              <div className="metric-chip glass">
+                <div className="val">100</div>
+                <div className="lbl">Best Practices</div>
+              </div>
             </div>
           </div>
-          <p style={{ fontSize: "12.5px", color: "var(--ink-muted)", marginTop: "14px" }}>
-            * Kendi işlettiğimiz bir tesiste ölçtüğümüz sezon içi ortalama. Sonuçlar bölgeye, sezona ve işletmeye göre değişir.
+          <p style={{ textAlign: "center", color: "var(--ink-faint)", fontSize: "12.5px", marginTop: "20px" }}>
+            Kurduğumuz sitelerde hedeflediğimiz Lighthouse skorları — Şamata Rafting&apos;te bunu 100/100 mobil hızla gerçekten kanıtladık.
           </p>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      {/* SISTEM */}
-      <section id="sistem" style={{ background: "var(--bg-alt)" }}>
+      {/* ÖZELLİKLER */}
+      <section id="ozellikler">
         <div className="wrap">
           <div className="section-head">
-            <div className="eyebrow">Sistem Nasıl Çalışıyor</div>
-            <h2>Acente modelinden, doğrudan müşteri modeline.</h2>
-            <p>Kendi tesislerimizde denedik: acenteye ödediğimiz komisyonu kaldırınca hem daha çok kazandık hem de müşteriyle direkt konuşur olduk.</p>
+            <div className="eyebrow" style={{ justifyContent: "center" }}>
+              Ne Sunuyoruz
+            </div>
+            <h2>Premium bir site, altı temel üzerine kurulur.</h2>
           </div>
-          <div className="system-grid">
-            <div className="system-old">
-              <h4>Eski Yöntem</h4>
-              <ul>
-                <li>Acente/otel her satıştan %20-30 komisyon alır</li>
-                <li>Müşteriyle aranızda üçüncü bir taraf olur</li>
-                <li>Fiyatınızı ve markanızı siz kontrol edemezsiniz</li>
-                <li>Sezon dışında talep tamamen acenteye bağlıdır</li>
-              </ul>
-            </div>
-            <div className="system-new">
-              <h4>Kona AI Modeli</h4>
-              <ul>
-                <li>Kendi web siteniz, kendi reklamınız, komisyon yok</li>
-                <li>Müşteri doğrudan sizin WhatsApp&apos;ınıza yazar/arar</li>
-                <li>Fiyatı, markayı, müşteri ilişkisini siz kontrol edersiniz</li>
-                <li>Reklamı siz yönetirsiniz — talep sezon boyunca sizin elinizde</li>
-              </ul>
-            </div>
+          <div className="feature-grid">
+            {FEATURES.map((f) => (
+              <div key={f.title} className="feature-card glass">
+                <div className="feature-icon">{f.icon}</div>
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* PAKET */}
-      <section id="paket">
+      {/* SONUÇLAR */}
+      <section id="sonuclar" style={{ background: "var(--bg-alt)" }}>
         <div className="wrap">
           <div className="section-head">
-            <div className="eyebrow">Anahtar Teslim Paket</div>
-            <h2>Tek fiyat, tek teslimat, 48 saat.</h2>
+            <div className="eyebrow" style={{ justifyContent: "center" }}>
+              Neyi İyileştiriyoruz
+            </div>
+            <h2>Doğru kurulan bir site + reklam, bu yönde hareket ettirir.</h2>
           </div>
-
-          <div className="pkg-card">
-            <div className="flag">En çok tercih edilen</div>
-            <div className="pkg-head">
-              <h3>Anahtar Teslim Paket</h3>
-              <div className="pkg-price">20.000₺</div>
-            </div>
-
-            <div className="pkg-list">
-              <div className="pkg-item">
-                <span className="n">1</span>
-                <p>
-                  <strong>Mobil Uyumlu Hızlı Web Site</strong>
-                  İşletmenize özel, hızlı yayınlanan bir site.
-                </p>
+          <div className="results-grid">
+            {RESULTS.map((r) => (
+              <div key={r.name} className="result-card glass">
+                <div className="top">
+                  <span className="metric-name">{r.name}</span>
+                  <span className={`arrow ${r.dir}`}>{r.dir === "up" ? "↑" : "↓"}</span>
+                </div>
+                <div className="result-bar">
+                  <div className="fill" style={{ width: `${r.fill}%` }}></div>
+                </div>
               </div>
-              <div className="pkg-item">
-                <span className="n">2</span>
-                <p>
-                  <strong>Google, Instagram &amp; Facebook Reklam Kurulumu</strong>
-                  Üç platformda reklam hesaplarınız kurulur, yayına alınır.
-                </p>
-              </div>
-              <div className="pkg-item">
-                <span className="n">3</span>
-                <p>
-                  <strong>Otomatik Müşteri Yanıtlama Sistemi</strong>
-                  Sitenize 7/24 yanıt veren bir chatbot ekleriz.
-                </p>
-              </div>
-            </div>
-
-            <div className="pkg-gift">🎁 Hediye: 1 Ay Reklam Yönetim Hizmetimiz Ücretsiz</div>
-
-            <div className="pkg-payment">
-              <b>Ödeme:</b> 10.000₺ iş başlangıcında, kalan 10.000₺ siteyi teslim alıp onayladığınızda.
-            </div>
-
-            <a href="#siparis" className="btn-primary">
-              Sitemi Kurun, Reklamı Açın →
-            </a>
+            ))}
           </div>
+          <p className="results-note">Yönler, doğru kurulmuş site + reklam kombinasyonunda genel eğilimi gösterir — kesin oranlar sektöre ve bütçeye göre değişir.</p>
         </div>
       </section>
 
-      {/* REFERANSLAR */}
-      <section id="referanslar" style={{ background: "var(--bg-alt)" }}>
+      {/* PORTFOLYO */}
+      <section id="portfolyo">
         <div className="wrap">
           <div className="section-head">
-            <div className="eyebrow">Örnek Çalışmalarımız</div>
+            <div className="eyebrow" style={{ justifyContent: "center" }}>
+              Örnek Çalışmalarımız
+            </div>
             <h2>Konuşmuyoruz, kurduğumuz siteler ortada.</h2>
-            <p>Aşağıdaki tüm siteler tarafımızca kuruldu ve yayında. Tıklayıp inceleyebilirsiniz.</p>
           </div>
           <div className="portfolio-grid">
             {PORTFOLIO.map((p) => (
-              <a key={p.name} className="pf-card" href={p.url} target="_blank" rel="noopener noreferrer">
-                <div className="pf-thumb">{p.initial}</div>
-                <h4>{p.name}</h4>
-                <div className="pf-tag">{p.tag}</div>
-                <div className="pf-link">Siteyi Gör →</div>
+              <a key={p.name} className="pf-card glass" href={p.url} target="_blank" rel="noopener noreferrer">
+                <div className="pf-preview">{p.name}</div>
+                <div className="pf-body">
+                  <div className="pf-tag">{p.tag}</div>
+                  <h4>{p.name}</h4>
+                  <span className="pf-score">
+                    <b>●</b> {p.score}
+                  </span>
+                </div>
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SIPARIS */}
-      <section id="siparis">
+      {/* TRUST */}
+      <section style={{ paddingTop: 0 }}>
         <div className="wrap">
-          <div className="section-head">
-            <div className="eyebrow">Hemen Başlayalım</div>
-            <h2>&quot;Sitemi kurun, reklamı açın&quot; deyin, 48 saatte teslim edelim.</h2>
-            <p>Formu doldurun, WhatsApp&apos;tan konuşalım.</p>
+          <div className="eyebrow" style={{ justifyContent: "center", width: "100%", display: "flex" }}>
+            Güvenen Markalar
           </div>
-          <div className="order-wrap">
-            <div className="order-form">
+          <div className="trust-row">
+            {TRUST.map((t) => (
+              <span key={t} className="trust-name">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLOSING CTA */}
+      <section id="teklif">
+        <div className="wrap">
+          <div className="closing">
+            <h2>
+              <span className="muted">Rakipleriniz web sitesi yaptırıyor.</span>
+              <br />
+              Siz <span className="glow">dijital satış sistemi</span> kurun.
+            </h2>
+          </div>
+
+          <div className="order-wrap" style={{ marginTop: 40 }}>
+            <div className="order-form glass">
               <label>Ad Soyad</label>
               <input id="o-name" type="text" placeholder="Adınız Soyadınız" />
               <label>İşletme Adı</label>
-              <input id="o-firm" type="text" placeholder="Rafting / tur / aktivite işletmeniz" />
+              <input id="o-firm" type="text" placeholder="İşletmenizin adı" />
               <label>Kısa not (opsiyonel)</label>
-              <textarea id="o-note" placeholder="Bölge, hizmet türü, mevcut siteniz varsa linki vb."></textarea>
+              <textarea id="o-note" placeholder="Sektörünüz, mevcut siteniz varsa linki vb."></textarea>
               <button className="wa-submit" onClick={sendToWhatsapp}>
-                WhatsApp&apos;tan Gönder →
+                Hemen Teklif Al →
               </button>
             </div>
-            <div className="info-card">
-              <div className="eyebrow">Neden Bu Model Çalışıyor</div>
-              <h3>Biz de aynı işi kendi tesisimizde yapıyoruz.</h3>
-              <p>Kona AI, turizm/aktivite işletmeleri için kurduğu bu sistemi önce kendi işinde denedi — günde 60-70 doğrudan mesaj/arama, sıfır acente komisyonu.</p>
-              <p>10.000₺ başlangıçta, kalan 10.000₺ siteyi onayladığınızda — riski paylaşıyoruz.</p>
+            <div className="info-card glass">
+              <div className="eyebrow">Neden Kona AI</div>
+              <h3>Şablon değil, satış sistemi kuruyoruz.</h3>
+              <p>Web sitesi, Google/Instagram/Facebook reklamı ve otomatik müşteri yanıtlama sistemi — hepsi tek elden, hızlı teslim.</p>
             </div>
           </div>
         </div>
@@ -217,10 +267,8 @@ export default function Page() {
 
       <footer>
         <div className="wrap">
-          <div className="footer-grid">
-            <div className="logo">
-              <span className="dot"></span>KONA AI
-            </div>
+          <div className="logo" style={{ marginBottom: 24 }}>
+            <span className="dot"></span>KONA AI
           </div>
           <div className="footer-bottom">
             <span>© 2026 Kona AI</span>

@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Kona AI — Web Sitesi + Google & Meta Reklam Yönetimi",
+  title: "Kona AI — Web Sitesi Değil, Satış Makinası Kuruyoruz",
   description:
-    "Kona AI; hızlı, SEO uyumlu bir web sitesi kurar ve Google & Meta reklamlarınızı yönetir.",
+    "Google'da daha görünür olun. Daha az reklam harcayın. Daha fazla müşteriye ulaşın.",
 };
 
 export default function RootLayout({ children }) {
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
