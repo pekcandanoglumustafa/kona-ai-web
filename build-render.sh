@@ -1,21 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# ALL_PUBLIC_PAGES_DISABLED: independent demo is confidential until institutional review.
-# This temporary build publishes only a holding page on both Cloudflare and Render.
-mkdir -p out
-cat > out/index.html <<'HTML'
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Özel sunum — yayın kapalı</title></head><body style="font:16px/1.6 system-ui,-apple-system,Segoe UI,Arial,sans-serif;max-width:600px;padding:45px 22px;margin:10vh auto;color:#20232a"><h1>Önizleme erişime kapatıldı</h1><p>Bu bağlantıda artık kamuya açık tasarım önizlemesi yayımlanmamaktadır.</p></body></html>
-HTML
-cat > out/_headers <<'HEADERS'
-/*
-  X-Robots-Tag: noindex, nofollow
-  Cache-Control: no-store
-HEADERS
-echo 'Public independent demo has been temporarily unpublished pending secure access setup.'
-exit 0
-
-
 # RENDER_PUBLIC_COPY_DISABLED: the former Render demo must not remain public.
 # Cloudflare Pages (CF_PAGES=1) continues to build the protected demo normally.
 if [[ "${RENDER:-}" == "true" && "${CF_PAGES:-}" != "1" ]]; then
